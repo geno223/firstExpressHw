@@ -28,14 +28,17 @@ const app = express()
 //     res.send("<h1>Hello World</h1>")
 // }) 
 app.get("/greeting/:name", (req, res) => {
-    //req.query is the object all your query params ?key=value&key=value
-    
     const name = req.params.name
-
-    res.send(`Wow! Hello there, ${name}`)
-
+   res.send(`Wow! Hello there, ${name}`)
 })
 
+
+app.get("/tip/:total/:tipPercentage", (req, res) => {
+    const tip = req.params.tipPercentage
+    const total = req.params.total
+    const tip1= total * .2
+   res.send(`${tip1}`)
+})
 
 
 
