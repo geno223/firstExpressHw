@@ -1,0 +1,56 @@
+///*****DEPENDENCIES
+//Bring thing from libraries and ither files
+//***** */
+
+const express = require('express')
+
+///******Create Express App object */
+///Center of express universe
+
+const app = express()
+
+//*****Middleware*/
+
+
+
+///**** ROUTES */
+// Which function should run for different (method/url)pairs
+//methods: GET , POST PUT, DELETE
+//url: anyhtingafter the domain so xyz.com/cheese -> url: /cheese
+
+// a GET request to the ROOT url or "/" xyz.com/ => "/"
+//app.get(url, function)
+//function: (request, response)
+//req(request): an object with details abut the request
+//re (response): an object with functions to send the respinse
+// app.get("/", (req, res)=>{
+ //res.send(ssomething) will send the response base on the input
+//     res.send("<h1>Hello World</h1>")
+// }) 
+app.get("/greeting/:name", (req, res) => {
+    //req.query is the object all your query params ?key=value&key=value
+    
+    const name = req.params.name
+
+    res.send(`Wow! Hello there, ${name}`)
+
+})
+
+
+
+
+
+
+
+
+// *****************************
+// TURNING ON SERVER LISTENER
+// WILL TELL OUR APP TO LISTEN FOR REQUESTS
+// ON A CERTAIN PORT
+// *****************************
+// app.listen(PORT, FUNCTION)
+// The function will run after the server turns on
+app.listen(3000, () => {console.log("server is listening on port 3000")})
+
+
+
