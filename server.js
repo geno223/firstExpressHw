@@ -47,6 +47,24 @@ app.get("/magic/:question", (req, res) => {
     res.send(` ${question}<h1>${randRes}</h1>`)
 })
 
+app.get("/", (req, res) => {
+  
+   res.send(`<a href= "/98"> "take one down, pass it around"</a>"99 Bottles of beer on the wall"`)
+})
+
+app.get("/:number_of_bottles", (req, res) => {
+const bottle = Number(req.params.number_of_bottles)
+const a = bottle -1
+if(bottle === 0 ){
+    res.send(`<a href= "/">Start Over</a>`)
+
+}
+
+res.send(`${bottle} bottles of beer on the wall <a href= "${a}"> "take one down, pass it around"</a>`)
+
+})
+
+
 
 
 
